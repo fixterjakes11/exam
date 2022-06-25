@@ -7,8 +7,37 @@ namespace ConsoleApp9
     {
         static void Main(string[] args)
         {
-
+            
         }
+
+        /// <summary>
+        /// 5 билет
+        /// </summary>
+        public static void Tack5()
+        {
+            Console.WriteLine(calculation(-5d, 10d, 15d, 15d,10d, 14d));
+        } 
+        public static string calculation(double x1, double y1, double r1, double x2, double y2, double r2)
+        {
+            double d = Math.Sqrt(Math.Pow(x1 - x2, 2) + Math.Pow(y1 - y2, 2));
+            Console.WriteLine(d);
+
+            if (d > r1 + r2)
+                return "Круги не пересекаются";
+            if (d + r2 <= r1)
+                return Convert.ToString(Math.PI * Math.Pow(r2, 2));
+
+            double alpha = 2.0 * Math.Acos((Math.Pow(d, 2) + Math.Pow(r1, 2) - Math.Pow(r2, 2)) / (2.0 * d * r1));
+            double beta = 2.0 * Math.Acos((Math.Pow(d, 2) + Math.Pow(r2, 2) - Math.Pow(r1, 2)) / (2.0 * d * r2));
+
+            double S1 = Math.Pow(r1,2) * (alpha - Math.Sin(alpha))/2.0;
+            double S2 = Math.Pow(r2, 2) * (alpha - Math.Sin(alpha)) / 2.0;
+
+            return Convert.ToString(S1 + S2);
+        } 
+
+
+
 
 
         /// <summary>
